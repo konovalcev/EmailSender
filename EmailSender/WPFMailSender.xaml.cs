@@ -23,26 +23,27 @@ namespace EmailSender
             foreach (var email in listStrMails)
             {
                 // Используем using, чтобы гарантированно удалить объект MailMessage после использования
-                using (MailMessage mm = new MailMessage("sender@yandex.ru", email))
+                using (MailMessage mm = new MailMessage("akonovalcev@gmail.com", email))
                 {
                     // Формируем письмо
                     mm.Subject = "Привет из C#"; // Заголовок письма
                     mm.Body = "Hello, world!"; // Тело письма
                     mm.IsBodyHtml = false; // Не используем html в теле письма                                           
-                    using (SmtpClient sc = new SmtpClient("smtp.yandex.ru", 25)) // Авторизуемся на smtp-сервере и отправляем письмо
+                    using (SmtpClient sc = new SmtpClient("smtp.gmail.com", 587)) // Авторизуемся на smtp-сервере и отправляем письмо
                                                                                  // Оператор using гарантирует вызов метода Dispose, даже если при вызове
                                                                                  // методов в объекте происходит исключение.
                     {
                         sc.EnableSsl = true;
-                        sc.Credentials = new NetworkCredential("aleksandr.konovaltcev@yandex.ru", strPassword);
-                        try
-                        {
-                            sc.Send(mm);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
-                        }
+                        sc.Credentials = new NetworkCredential("akonovalcev@gmail.com", strPassword);
+                        sc.Send(mm);
+                        //try
+                        //{
+                        //    sc.Send(mm);
+                        //}
+                        //catch (Exception ex)
+                        //{
+                        //    MessageBox.Show("Невозможно отправить письмо " + ex.ToString());
+                        //}
                     }
                 }
             }

@@ -16,7 +16,7 @@ namespace EmailSender
             InitializeComponent();
         }
 
-        private void btnSendEmail_Click(object sender, RoutedEventArgs e)
+        private void BtnSendEmail_Click(object sender, RoutedEventArgs e)
         {
             var listStrMails = new List<string> { "konovalcev@me.com", "akonovalcev@gmail.com" }; // Список email'ов //кому мы отправляем письмо
             string strPassword = passwordBox.Password;

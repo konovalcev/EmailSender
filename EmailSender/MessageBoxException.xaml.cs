@@ -4,12 +4,13 @@
 namespace EmailSender
 {
     /// <summary>
-    /// Interaction logic for SendEndWindow.xaml
+    /// Interaction logic for MessageBoxException.xaml
     /// </summary>
-    public partial class SendEndWindow : Window
+    public partial class MessageBoxException : Window
     {
-        public SendEndWindow()
+        public MessageBoxException(string message)
         {
+            Content = message;
             InitializeComponent();
         }
 
